@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import useGeneratePhotoURL from '../../CustomHooks/useGeneratePhotoURL';
+import LoadingSpinner from '../../Utilities/LoadingSpinner';
 
-const AddNewCouponModal = () => {
+const AddNewCouponModal = ({ setOpenModal, refetch, setShowSuccessToast }) => {
     const { generatePhotoURL } = useGeneratePhotoURL();
+    const [isLoading, setIsLoading] = useState(false);
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = async data => {
+        setIsLoading(true);
         const newPhotoURL = await generatePhotoURL(data?.photoURL[0]);
         const { photoURL, ...rest } = data;
         fetch('http://localhost:5000/coupon', {
@@ -16,9 +19,13 @@ const AddNewCouponModal = () => {
             body: JSON.stringify({ picture: newPhotoURL, ...rest })
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => { if (data?.acknowledged) { setShowSuccessToast(true) } });
+        setOpenModal(false);
+        refetch();
+        setIsLoading(false);
     };
 
+    isLoading && <LoadingSpinner />
 
     return (
         <div>
@@ -64,7 +71,7 @@ const AddNewCouponModal = () => {
                                 <span className="label-text-alt text-red-500">Enter the discount code!</span>
                             </label>}
 
-                        <button className='btn'>Add Coupon</button>
+                        <button className="btn">Add New Coupon</button>
                     </form>
 
                 </div>
