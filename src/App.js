@@ -5,16 +5,15 @@ import Login from './Pages/Login/Login';
 import RequireAuth from './Utilities/RequireAuth';
 
 function App() {
-  console.log(process.env.REACT_APP_apiKey);
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={
-          // <RequireAuth>
-          <Home />
-          // </RequireAuth>
+        <Route path='/home' element={
+          <RequireAuth>
+            <Home />
+          </RequireAuth>
         } />
-        {/* <Route path='/login' element={<Login />} /> */}
+        <Route path='/login' element={<Login />} />
       </Routes>
     </div>
   );

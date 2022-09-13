@@ -5,23 +5,8 @@ const CouponTable = () => {
     const { data } = useCoupons();
 
     return (
-        <section className='h-[100vh] overflow-hidden'>
-            <div className="lg:px-20 py-5 w-full shadow-md fixed z-50 bg-white">
-                <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-5">
-                        <img src="/favicon.png" alt="" className='w-20 h-full' />
-                        <div>
-                            <h2 className='text-sm lg:text-xl font-bold uppercase'>Arab coupon daily</h2>
-                            <h1 className="text-md lg:text-2xl font-bold uppercase">Extention</h1>
-                        </div>
-                    </div>
-                    <div className="flex items-center gap-5">
-                        <button className='btn btn-sm btn-outline lg:mr-10'><i className="fa-solid fa-plus"></i> Add new offer</button>
+        <section>
 
-                        <button><i className="fa-solid fa-arrow-right-from-bracket text-2xl"></i></button>
-                    </div>
-                </div>
-            </div>
             <div className="lg:px-20 pt-28 lg:pt-24 h-[100vh] overflow-auto scrollbar-hide">
                 <p className="text-lg font-bold py-3 px-3">Offer List</p>
                 <table className="table w-full z-0 overflow-auto">
