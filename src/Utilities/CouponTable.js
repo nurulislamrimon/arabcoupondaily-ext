@@ -4,7 +4,6 @@ import useCoupons from '../CustomHooks/useCoupons';
 const CouponTable = () => {
     const { data } = useCoupons();
 
-    console.log(data);
     return (
         <section className='h-[100vh] overflow-hidden'>
             <div className="lg:px-20 py-5 w-full shadow-md fixed z-50 bg-white">
@@ -17,15 +16,15 @@ const CouponTable = () => {
                         </div>
                     </div>
                     <div className="flex items-center gap-5">
-                        <button className='btn btn-sm btn-outline lg:mr-10'><i class="fa-solid fa-plus"></i> Add new offer</button>
+                        <button className='btn btn-sm btn-outline lg:mr-10'><i className="fa-solid fa-plus"></i> Add new offer</button>
 
-                        <button><i class="fa-solid fa-arrow-right-from-bracket text-2xl"></i></button>
+                        <button><i className="fa-solid fa-arrow-right-from-bracket text-2xl"></i></button>
                     </div>
                 </div>
             </div>
             <div className="lg:px-20 pt-28 lg:pt-24 h-[100vh] overflow-auto scrollbar-hide">
                 <p className="text-lg font-bold py-3 px-3">Offer List</p>
-                <table className="table w-full mx-auto z-0 overflow-auto">
+                <table className="table w-full z-0 overflow-auto">
 
                     <tbody>
                         {data?.map((coupon) =>
@@ -41,8 +40,8 @@ const CouponTable = () => {
                                 <td title={coupon?.link}>{window?.visualViewport?.width <= 780 ? coupon?.link?.slice(0, 10)?.concat('...') : coupon?.link}</td>
                                 <td className='font-bold text-green-500 text-sm lg:text-lg'>{coupon?.code}</td>
                                 <td><div className="flex justify-around gap-5">
-                                    <i class="fa-regular fa-pen-to-square"></i>
-                                    <i class="fa-solid fa-trash"></i></div></td>
+                                    <i className="fa-regular fa-pen-to-square"></i>
+                                    <i className="fa-solid fa-trash"></i></div></td>
                             </tr>)}
                     </tbody>
                 </table>
