@@ -2,7 +2,7 @@ import React from 'react';
 
 const DeleteCoupon = ({ coupon, refetch, setShowDeleteToast, showDeleteToast }) => {
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/coupon/${id}`, {
+        fetch(`https://arabcoupondaily-ext.herokuapp.com/coupon/${id}`, {
             method: 'delete'
         })
             .then(res => res.json())

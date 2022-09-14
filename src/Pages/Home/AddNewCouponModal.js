@@ -13,7 +13,7 @@ const AddNewCouponModal = ({ setOpenModal, refetch, setShowSuccessToast }) => {
         setIsLoading(true);
         const newPhotoURL = await generatePhotoURL(data?.photoURL[0]);
         const { photoURL, ...rest } = data;
-        fetch('http://localhost:5000/coupon', {
+        fetch('https://arabcoupondaily-ext.herokuapp.com/coupon', {
             method: 'post',
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ picture: newPhotoURL, ...rest })

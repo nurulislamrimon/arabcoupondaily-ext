@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import DeleteCoupon from './DeleteCoupon';
 import DeleteToast from './DeleteToast';
 import EditCoupon from './EditCoupon';
+import EditToast from './EditToast';
 import SuccessToast from './SuccessToast';
 
 const CouponTable = ({ data, showSuccessToast, setShowSuccessToast, refetch }) => {
     const [showDeleteToast, setShowDeleteToast] = useState(false);
+    const [showEditToast, setShowEditToast] = useState(false);
     const [editCoupon, setEditCoupon] = useState(null);
     const [deleteCoupon, setDeleteCoupon] = useState(null);
 
@@ -26,7 +28,8 @@ const CouponTable = ({ data, showSuccessToast, setShowSuccessToast, refetch }) =
                                         <div>
                                             <h4 className="text-sm lg:text-lg font-bold">{coupon?.name}</h4>
                                             <p title={coupon?.about}>{window?.visualViewport?.width <= 780 ? coupon?.about?.slice(0, 10)?.concat('...') : coupon?.about?.length >= 24 ? coupon?.about?.slice(0, 25)?.concat('...') : coupon?.about}</p>
-                                        </div></div>
+                                        </div>
+                                    </div>
                                 </td>
                                 <td title={coupon?.link}>{window?.visualViewport?.width <= 780 ? coupon?.link?.slice(0, 10)?.concat('...') : coupon?.link?.length >= 24 ? coupon?.link?.slice(0, 25)?.concat('...') : coupon?.link}</td>
                                 <td className='font-bold text-green-500 text-sm lg:text-lg'>{coupon?.code}</td>
@@ -42,8 +45,9 @@ const CouponTable = ({ data, showSuccessToast, setShowSuccessToast, refetch }) =
                     </tbody>
                 </table>
             </div>
-            {editCoupon && <EditCoupon coupon={editCoupon} />}
+            {editCoupon && <EditCoupon coupon={editCoupon} refetch={refetch} setEditCoupon={setEditCoupon} setShowEditToast={setShowEditToast} />}
             {deleteCoupon && <DeleteCoupon coupon={deleteCoupon} refetch={refetch} setShowDeleteToast={setShowDeleteToast} showDeleteToast={showDeleteToast} />}
+            {showEditToast && <EditToast setShowEditToast={setShowEditToast} />}
             {showDeleteToast && <DeleteToast setShowDeleteToast={setShowDeleteToast} />}
         </section>
     );
