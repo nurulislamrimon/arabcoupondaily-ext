@@ -1,5 +1,5 @@
 ## This site is made for managing an extension
-### Go to the site using (link)[https://arabcoupondaily-ext.web.app/]
+### Go to the site using [link](https://arabcoupondaily-ext.web.app/)
 
 Live site link:
 * https://arabcoupondaily-ext.web.app/
