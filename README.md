@@ -11,4 +11,4 @@ Server link:
 
 server github link: https://github.com/nurulislamrimon/arabcoupondaily-ext-server
 
-Main Site: arabcoupondaily.com
+Main Site: https://arabcoupondaily.com
