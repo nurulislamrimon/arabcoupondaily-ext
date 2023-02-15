@@ -6,7 +6,7 @@ Live site link:
 * https://arabcoupondaily.netlify.app/
 
 Server link:
-* extensionserver.arabcoupondaily.com/
+* http://extensionserver.arabcoupondaily.com/
 * https://arabcoupondaily-ext.onrender.com
 
 server github link: https://github.com/nurulislamrimon/arabcoupondaily-ext-server
